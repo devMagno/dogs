@@ -22,3 +22,6 @@
   opacity: 0.5;
   cursor: wait;
 }
+.button:disabled:hover {
+  box-shadow: unset;
+}
