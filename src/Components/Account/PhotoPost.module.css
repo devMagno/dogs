@@ -16,8 +16,18 @@
 }
 
 .preview::after {
-  content: "";
+  content: '';
   display: block;
   height: 0px;
   padding-bottom: 100%;
+}
+
+@media only screen and (max-width: 40rem) {
+  .photoPost {
+    display: block;
+  }
+
+  .preview {
+    margin-top: 1.5rem;
+  }
 }

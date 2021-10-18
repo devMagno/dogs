@@ -13,9 +13,7 @@ export function FeedPhotos({ setModalPhoto }) {
   useEffect(() => {
     async function getPhotos() {
       const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 })
-      const { json } = await request(url, options)
-
-      console.log(json)
+      const { response, json } = await request(url, options)
     }
 
     getPhotos()
