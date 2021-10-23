@@ -5,7 +5,7 @@ import { useFetch } from '../../Hooks/useFetch'
 import { ReactComponent as Send } from '../../Assets/enviar.svg'
 import styles from './PhotoCommentForm.module.css'
 
-export function PhotoCommentForm({ id, setComments }) {
+export function PhotoCommentForm({ id, setComments, isSinglePage }) {
   const [comment, setComment] = useState('')
 
   const { request, error } = useFetch()
@@ -25,7 +25,10 @@ export function PhotoCommentForm({ id, setComments }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form
+      onSubmit={handleSubmit}
+      className={`${styles.form} ${isSinglePage ? styles.single : ''}`}
+    >
       <textarea
         className={styles.textarea}
         id="comment"

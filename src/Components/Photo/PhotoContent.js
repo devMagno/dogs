@@ -6,11 +6,11 @@ import { UserContext } from '../../UserContext'
 import { PhotoDelete } from './PhotoDelete'
 import { Image } from '../Helpers/Image'
 
-export function PhotoContent({ data }) {
+export function PhotoContent({ data, isSinglePage }) {
   const user = useContext(UserContext)
   const { photo, comments } = data
   return (
-    <div className={styles.photo}>
+    <div className={`${styles.photo} ${isSinglePage ? styles.single : ''}`}>
       <div className={styles.img}>
         <Image src={photo.src} alt={photo.title} />
       </div>
@@ -25,7 +25,11 @@ export function PhotoContent({ data }) {
             <span className={styles.views}>{photo.acessos}</span>
           </p>
           <h1 className="title">
-            <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
+            {!isSinglePage ? (
+              <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
+            ) : (
+              <span>{photo.title}</span>
+            )}
           </h1>
           <ul className={styles.attributes}>
             <li>{photo.peso} kg</li>
@@ -35,7 +39,11 @@ export function PhotoContent({ data }) {
           </ul>
         </div>
       </div>
-      <PhotoComments id={photo.id} commentsList={comments} />
+      <PhotoComments
+        id={photo.id}
+        commentsList={comments}
+        isSinglePage={isSinglePage}
+      />
     </div>
   )
 }

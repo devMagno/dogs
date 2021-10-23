@@ -4,7 +4,7 @@ import { PhotoCommentForm } from './PhotoCommentForm'
 
 import styles from './PhotoComments.module.css'
 
-export function PhotoComments({ id, commentsList }) {
+export function PhotoComments({ id, commentsList, isSinglePage }) {
   const [comments, setComments] = useState(() => commentsList)
   const { isLogged } = useContext(UserContext)
   const commentsSection = useRef(null)
@@ -15,7 +15,10 @@ export function PhotoComments({ id, commentsList }) {
 
   return (
     <>
-      <ul className={styles.comments} ref={commentsSection}>
+      <ul
+        className={`${styles.comments} ${isSinglePage ? styles.single : ''}`}
+        ref={commentsSection}
+      >
         {comments.map((comment) => (
           <li key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>
@@ -23,7 +26,7 @@ export function PhotoComments({ id, commentsList }) {
           </li>
         ))}
       </ul>
-      {isLogged && <PhotoCommentForm id={id} setComments={setComments} />}
+      {isLogged && <PhotoCommentForm id={id} setComments={setComments} isSinglePage={isSinglePage} />}
     </>
   )
 }

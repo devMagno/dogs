@@ -7,17 +7,26 @@ import { Loader } from '../Helpers/Loader'
 
 import styles from './FeedPhotos.module.css'
 
-export function FeedPhotos({ setModalPhoto }) {
+export function FeedPhotos({
+  user,
+  page,
+  setModalPhoto,
+  setKeepFetchingPosts,
+}) {
   const { data, isLoading, error, request } = useFetch()
 
   useEffect(() => {
     async function getPhotos() {
-      const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 })
+      const total = 6
+      const { url, options } = PHOTOS_GET({ page, total, user })
       const { response, json } = await request(url, options)
+
+      if (response && response.ok && json.length < total)
+        setKeepFetchingPosts(false)
     }
 
     getPhotos()
-  }, [request])
+  }, [request, user, page, setKeepFetchingPosts])
 
   if (error) return <Error error={error} />
 
