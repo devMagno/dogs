@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './StatsCharts.module.css'
 import { VictoryPie, VictoryChart, VictoryBar } from 'victory'
 
-export function StatsCharts({ data }) {
+export default function StatsCharts({ data }) {
   const [chartData, setChartData] = useState([])
   const [total, setTotal] = useState(0)
 

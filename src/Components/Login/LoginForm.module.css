@@ -18,6 +18,7 @@
 
 .register {
   margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 .register p {
   margin-top: 2rem;
@@ -30,10 +31,10 @@
   font-size: 2rem;
 }
 .subtitle::after {
-  content: "";
+  content: '';
   display: block;
   background: #ddd;
   height: 0.5rem;
   width: 3rem;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
 }

@@ -44,7 +44,7 @@ export function ResetPassword() {
   }
 
   return (
-    <section>
+    <section className="animateLeft">
       <Head title="Nova senha" />
       <h1 className="title">Nova senha</h1>
       <form onSubmit={handleSubmit}>

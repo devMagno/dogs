@@ -25,7 +25,7 @@ export function ForgotPassword() {
   }
 
   return (
-    <section>
+    <section className="animateLeft">
       <Head title="Perdeu a senha?" />
       <h1 className="title">Perdeu a senha?</h1>
       {data ? (
