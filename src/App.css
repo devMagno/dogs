@@ -82,6 +82,16 @@ a {
   margin: 1rem 0;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 10rem);
+}
+
+.appBody {
+  flex: 1;
+}
+
 .animateLeft {
   opacity: 0;
   transform: translateX(-20px);
@@ -93,4 +103,9 @@ a {
     opacity: 1;
     transform: initial;
   }
+}
+
+
+.VictoryContainer {
+  height: initial;
 }

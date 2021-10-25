@@ -6,6 +6,7 @@ import { useForm } from '../../Hooks/useForm'
 import { Button } from '../Forms/Button'
 import { Input } from '../Forms/Input'
 import { Error } from '../Helpers/Error'
+import { Head } from '../Helpers/Head'
 
 export function ResetPassword() {
   const [login, setLogin] = useState('')
@@ -43,7 +44,8 @@ export function ResetPassword() {
   }
 
   return (
-    <div>
+    <section>
+      <Head title="Nova senha" />
       <h1 className="title">Nova senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
@@ -59,6 +61,6 @@ export function ResetPassword() {
         )}
         <Error error={error} />
       </form>
-    </div>
+    </section>
   )
 }

@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Route, Routes } from 'react-router'
 import { UserContext } from '../../UserContext'
 import { Feed } from '../Feed/Feed'
+import { Head } from '../Helpers/Head'
 import { NotFound } from '../NotFound'
 import { Header } from './Header'
 import { PhotoPost } from './PhotoPost'
@@ -12,6 +13,7 @@ export function Account() {
 
   return (
     <section className="container">
+      <Head title="Minha conta" />
       <Header />
       <Routes>
         {data && <Route path="/" element={<Feed user={data.id} />} />}

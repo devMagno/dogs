@@ -4,6 +4,7 @@ import { useForm } from '../../Hooks/useForm'
 import { Button } from '../Forms/Button'
 import { Input } from '../Forms/Input'
 import { Error } from '../Helpers/Error'
+import { Head } from '../Helpers/Head'
 
 export function ForgotPassword() {
   const login = useForm()
@@ -25,6 +26,7 @@ export function ForgotPassword() {
 
   return (
     <section>
+      <Head title="Perdeu a senha?" />
       <h1 className="title">Perdeu a senha?</h1>
       {data ? (
         <p style={{ color: '#4c1' }}>{data}</p>

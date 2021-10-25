@@ -121,6 +121,7 @@ export function LOST_PASSWORD(body) {
     },
   }
 }
+
 export function RESET_PASSWORD(body) {
   return {
     url: `${API_URL}/api/password/reset`,
@@ -131,5 +132,17 @@ export function RESET_PASSWORD(body) {
       },
       body: JSON.stringify(body),
     },
+  }
+}
+
+export function STATS_GET(token) {
+  return {
+    url: `${API_URL}/api/stats`,
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    }
   }
 }

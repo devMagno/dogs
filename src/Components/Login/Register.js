@@ -6,6 +6,7 @@ import { UserContext } from '../../UserContext'
 import { Button } from '../Forms/Button'
 import { Input } from '../Forms/Input'
 import { Error } from '../Helpers/Error'
+import { Head } from '../Helpers/Head'
 
 export function Register() {
   const username = useForm()
@@ -30,6 +31,7 @@ export function Register() {
 
   return (
     <section className="animateLeft">
+      <Head title="Cadastre-se" />
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />

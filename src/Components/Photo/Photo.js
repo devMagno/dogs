@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import { PHOTO_GET } from '../../api'
 import { useFetch } from '../../Hooks/useFetch'
 import { Error } from '../Helpers/Error'
+import { Head } from '../Helpers/Head'
 import { Loader } from '../Helpers/Loader'
 import { PhotoContent } from '../Photo/PhotoContent'
 
@@ -21,6 +22,7 @@ export function Photo() {
   if (data)
     return (
       <section className="container mainContainer">
+        <Head title={data.photo.title} />
         <PhotoContent data={data} isSinglePage={true} />
       </section>
     )
